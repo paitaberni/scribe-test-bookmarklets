@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Consultas de Wikipedia</title>
+</head>
+<body>
+    <h1>Consulta Registrada en GitHub</h1>
+    <p>La consulta ha sido registrada exitosamente. ¡Gracias por usar nuestro bookmarklet!</p>
+
+    <script>
+        // Función para registrar la consulta
+        function registrarConsulta(url) {
+            const token = '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'; // Reemplaza con tu token personal
+            const repoOwner = 'paitaberni';  // Nombre del propietario del repositorio
+            const repoName = 'scribe-test-bookmarklets';  // Nombre del repositorio
+            const filePath = 'queries.json';  // Ruta del archivo JSON que quieres actualizar
+
+            // Realizar una solicitud GET para obtener el archivo JSON actual
+            fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Decodificar el contenido del archivo JSON
+                    const content = JSON.parse(atob(data.content));
+
+                    // Agregar la nueva consulta al archivo JSON
+                    content.push({
+                        timestamp: new Date().toISOString(),
+                        query: url
+                    });
+
+                    // Preparar el cuerpo de la solicitud PUT para actualizar el archivo JSON
+                    const body = JSON.stringify({
+                        message: "Agregar nueva consulta",
+                        content: btoa(JSON.stringify(content)), // Codifica el contenido en base64
+                        sha: data.sha // El SHA del archivo para permitir su actualización
+                    });
+
+                    // Realizar la solicitud PUT para actualizar el archivo
+                    fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${token}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: body
+                    })
+                    .then(response => response.json())
+                    .then(updatedData => {
+                        console.log('Consulta registrada y archivo actualizado en GitHub:', updatedData);
+                    })
+                    .catch(error => console.error('Error al actualizar el archivo en GitHub:', error));
+                })
+                .catch(error => console.error('Error al obtener el archivo desde GitHub:', error));
+        }
+
+        // Extraer la consulta de la URL y registrar la consulta
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+        if (query) {
+            registrarConsulta(decodeURIComponent(query));  // Decodifica la URL de la consulta
+        }
+    </script>
+
+</body>
+</html>
