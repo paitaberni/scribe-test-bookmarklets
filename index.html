@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><title>Forzar Wiki ES</title></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo...</title>
+</head>
 <body>
-  <a href="javascript:(function(){
-  var query = location.href; // Obtiene la URL de la consulta
-  var url = "https://paitaberni.github.io/scribe-test-bookmarklets/?query=" + encodeURIComponent(query); // Redirige a tu página
-  window.location.href = url; // Redirige al URL con la consulta
-})();
+    <h1>Redirigiendo a la página de registro...</h1>
 
-">
-    Forzar Wiki ES
-  </a>
+    <script>
+        // Obtener la URL de la consulta (la página que se está buscando)
+        var query = location.href;  // La URL de la página que se busca en Wikipedia
+        
+        // Verificar si la URL es una página de Wikipedia
+        if (query.includes('wikipedia.org')) {
+            // Redirigir automáticamente a la página de registro de GitHub Pages
+            var url = "https://paitaberni.github.io/scribe-test-bookmarklets/register.html?query=" + encodeURIComponent(query); 
+            window.location.href = url;  // Redirigir a la página de registro
+        }
+    </script>
 </body>
 </html>
