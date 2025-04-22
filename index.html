@@ -3,31 +3,31 @@
 <head><meta charset="UTF-8"><title>Forzar Wiki ES</title></head>
 <body>
   <a href="javascript:(function(){
-  // Detectar subdominio de 2 letras (es, en, de, it, etc.)
-  var hostParts = location.hostname.split('.'),
-      code = (hostParts[0].length===2 ? hostParts[0]
-             : (hostParts[1]&&hostParts[1].length===2 ? hostParts[1] : null));
-  // Validar Wikipedia
-  if(!code || hostParts.slice(-2).join('.')!=="wikipedia.org"){
-    return alert("Esto no es una página de Wikipedia");
+  var host = location.hostname.split('.'),
+      code = (host[0].length===2 ? host[0]
+             : (host[1]&&host[1].length===2 ? host[1] : null)),
+      path = location.pathname + location.search + location.hash;
+  // No es Wikipedia
+  if(!code || host.slice(-2).join('.')!=="wikipedia.org"){
+    return alert("Esto no es Wikipedia");
   }
-  // Ruta completa (artículo, índice, búsqueda…)
-  var path = location.pathname + location.search + location.hash;
-  // Detectar índice/Main_Page
-  var isIndex = (path==="/" || path==="/wiki/Main_Page" || path==="/wiki/");
-  // Lógica de destino
-  var target;
+  // ¿Es página de búsqueda?
+  if(path.indexOf("/w/index.php")===0 && /\?search=/.test(path)){
+    // Siempre búsqueda en español
+    location.href = location.protocol + "//es.wikipedia.org" + path;
+    return;
+  }
+  // ¿Es índice/Main_Page?
+  var isIndex = (path==="\/" || path==="/wiki/Main_Page" || path==="/wiki/");
   if(isIndex){
-    // Si estamos en el índice, alternar ES↔EN
-    target = (code==="en" ? "es" : "en");
-  } else {
-    // Si es un artículo: inglés → inglés, cualquier otro → español
-    target = (code==="en" ? "en" : "es");
+    var tgt = (code==="en" ? "es" : "en");
+    location.href = location.protocol + "//"+tgt+".wikipedia.org"+path;
+    return;
   }
-  // Redirigir manteniendo ruta
-  location.href = location.protocol + "//" + target + ".wikipedia.org" + path;
+  // Artículo normal: EN si ya estabas en inglés, si no → ES
+  var tgt = (code==="en" ? "en" : "es");
+  location.href = location.protocol + "//"+tgt+".wikipedia.org"+path;
 })();
-
 ">
     Forzar Wiki ES
   </a>
