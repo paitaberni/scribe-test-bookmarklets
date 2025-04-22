@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><title>Forzar Wiki ES</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Bookmarklet Wiki ES/EN Inteligente</title>
+</head>
 <body>
-  <a href="javascript:location.href=location.href.replace(/^https?:\/\/\w{2}\.wikipedia\.org/,'https://es.wikipedia.org');">
-    Forzar Wiki ES
-  </a>
+  <div style="font-family: sans-serif; max-width: 600px; margin: 2em auto;">
+    <h1>Wiki ES/EN Inteligente</h1>
+    <p>
+      Arrastra el siguiente enlace a la barra de marcadores de tu Kindle Scribe:
+    </p>
+    <p>
+      <a
+        href="javascript:(function(){var h=location.hostname.split('.')[0],p=location.pathname+location.search+location.hash,tgt=(h==='en'?'en':'es');if(location.pathname.indexOf('/w/index.php?search=')===0){tgt='es';}else if(p==='/'||p==='/wiki/Main_Page'||p==='/wiki/'){tgt=(h==='en'?'es':'en');}location.href=location.protocol+'//'+tgt+'.wikipedia.org'+p;})();"
+        style="display: inline-block; padding: 0.5em 1em; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px;"
+      >
+        Wiki ES/EN Inteligente
+      </a>
+    </p>
+    <p>
+      <small>
+        Cuando estés en cualquier artículo de Wikipedia, haz clic (o toca) este marcador para alternar automáticamente entre la versión en español e inglés según corresponda.
+      </small>
+    </p>
+  </div>
 </body>
 </html>
