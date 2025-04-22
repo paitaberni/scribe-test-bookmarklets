@@ -2,15 +2,30 @@
 <html lang="es">
 <head><meta charset="UTF-8"><title>Forzar Wiki ES</title></head>
 <body>
-  <a href="javascript:(function(){  
-  if(!/\/\/[a-z]{2}\.wikipedia\.org\//.test(location.href)){  
-    alert('Esto no es una página de Wikipedia');  
-    return;  
-  }  
-  var h = location.hostname.split('.')[0],  
-      p = location.pathname + location.search + location.hash,  
-      t = (h==='en' ? 'en' : 'es');  
-  location.href = 'https://' + t + '.wikipedia.org' + p;  
+  <a href="javascript:(function(){
+  // Detectar subdominio de 2 letras (es, en, de, it, etc.)
+  var hostParts = location.hostname.split('.'),
+      code = (hostParts[0].length===2 ? hostParts[0]
+             : (hostParts[1]&&hostParts[1].length===2 ? hostParts[1] : null));
+  // Validar Wikipedia
+  if(!code || hostParts.slice(-2).join('.')!=="wikipedia.org"){
+    return alert("Esto no es una página de Wikipedia");
+  }
+  // Ruta completa (artículo, índice, búsqueda…)
+  var path = location.pathname + location.search + location.hash;
+  // Detectar índice/Main_Page
+  var isIndex = (path==="/" || path==="/wiki/Main_Page" || path==="/wiki/");
+  // Lógica de destino
+  var target;
+  if(isIndex){
+    // Si estamos en el índice, alternar ES↔EN
+    target = (code==="en" ? "es" : "en");
+  } else {
+    // Si es un artículo: inglés → inglés, cualquier otro → español
+    target = (code==="en" ? "en" : "es");
+  }
+  // Redirigir manteniendo ruta
+  location.href = location.protocol + "//" + target + ".wikipedia.org" + path;
 })();
 
 ">
