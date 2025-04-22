@@ -2,27 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Bookmarklet Wiki ES/EN Inteligente</title>
+  <title>Wiki ES/EN Inteligente</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body { font-family: sans-serif; padding: 2em; text-align: center; }
+    .info { margin-top: 1em; color: #555; }
+  </style>
 </head>
 <body>
-  <div style="font-family: sans-serif; max-width: 600px; margin: 2em auto;">
-    <h1>Wiki ES/EN Inteligente</h1>
-    <p>
-      Arrastra el siguiente enlace a la barra de marcadores de tu Kindle Scribe:
-    </p>
-    <p>
-      <a
-        href="javascript:(function(){var h=location.hostname.split('.')[0],p=location.pathname+location.search+location.hash,tgt=(h==='en'?'en':'es');if(location.pathname.indexOf('/w/index.php?search=')===0){tgt='es';}else if(p==='/'||p==='/wiki/Main_Page'||p==='/wiki/'){tgt=(h==='en'?'es':'en');}location.href=location.protocol+'//'+tgt+'.wikipedia.org'+p;})();"
-        style="display: inline-block; padding: 0.5em 1em; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px;"
-      >
-        Wiki ES/EN Inteligente
-      </a>
-    </p>
-    <p>
-      <small>
-        Cuando estés en cualquier artículo de Wikipedia, haz clic (o toca) este marcador para alternar automáticamente entre la versión en español e inglés según corresponda.
-      </small>
-    </p>
-  </div>
+  <h1>🔄 Forzar Wiki ES/EN</h1>
+  <p>Si esto no te redirige en 1 segundo, toca aquí:</p>
+  <p><a id="go" href="#">Redirigir ahora</a></p>
+  <p class="info">Este marcador lee la página anterior y la abre en ES o EN.</p>
+
+  <script>
+    (function(){
+      var ref = document.referrer;
+      if(!ref || !/^https?:\/\/\w{2}\.wikipedia\.org/.test(ref)){
+        document.getElementById('go').textContent = 'Abre esto desde un artículo de Wikipedia';
+        document.getElementById('go').href = '#';
+        return;
+      }
+
+      // extraer host y path
+      var m = ref.match(/^https?:\/\/([^\/]+)(\/.*)$/),
+          host = m[1],
+          path = m[2],
+          code = host.split('.')[0],
+          target;
+
+      // lógica
+      if(path.indexOf('/w/index.php?search=')===0){
+        target = 'es';
+      }
+      else if(path==='/' || path==='/wiki/' || path==='/wiki/Main_Page'){
+        target = (code==='en' ? 'es' : 'en');
+      }
+      else {
+        target = (code==='en' ? 'en' : 'es');
+      }
+
+      var newUrl = ref.replace(/^https?:\/\/\w{2}\.wikipedia\.org/, 'https://'+target+'.wikipedia.org');
+      document.getElementById('go').href = newUrl;
+
+      // redirigir automáticamente
+      setTimeout(function(){
+        window.location.replace(newUrl);
+      }, 1000);
+    })();
+  </script>
 </body>
 </html>
