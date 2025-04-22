@@ -2,7 +2,15 @@
 <html lang="es">
 <head><meta charset="UTF-8"><title>Forzar Wiki ES</title></head>
 <body>
-  <a href="javascript:location.href=location.href.replace(/^https?:\/\/\w{2}\.wikipedia\.org/,'https://es.wikipedia.org');">
+  <a href="javascript:(function(){
+  var host = location.hostname.split('.')[0];
+  var pref = (host === 'en' ? 'en' : 'es');
+  location.href = location.href.replace(
+    /^https?:\/\/\w{2}\.wikipedia\.org/,
+    'https://' + pref + '.wikipedia.org'
+  );
+})();
+">
     Forzar Wiki ES
   </a>
 </body>
