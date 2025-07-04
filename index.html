@@ -2,54 +2,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Wiki ES/EN Inteligente</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>¡Feliz Cumpleaños Yago!</title>
   <style>
-    body { font-family: sans-serif; padding: 2em; text-align: center; }
-    .info { margin-top: 1em; color: #555; }
+    body {
+      font-family: sans-serif;
+      background: #f9f3d2;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #d23f31;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+    .buttons, .upload, details {
+      margin: 1rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    input[type="file"] {
+      font-size: 1rem;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>🔄 Forzar Wiki ES/EN</h1>
-  <p>Si esto no te redirige en 1 segundo, toca aquí:</p>
-  <p><a id="go" href="#">Redirigir ahora</a></p>
-  <p class="info">Este marcador lee la página anterior y la abre en ES o EN.</p>
+
+  <h1>¡Feliz cumpleaños Yago!!!</h1>
+  <p id="japan">核男、核19歳おめでとう!!!!</p>
+
+  <div class="buttons">
+    <button id="traducir">Traducir japonés</button>
+  </div>
+
+  <div class="upload">
+    <label for="video">Sube un video:</label>
+    <input type="file" id="video" accept="video/*">
+  </div>
+
+  <details>
+    <summary>¿Qué video hay que subir?</summary>
+    <p>el de tu culo y mi fideo</p>
+  </details>
 
   <script>
-    (function(){
-      var ref = document.referrer;
-      if(!ref || !/^https?:\/\/\w{2}\.wikipedia\.org/.test(ref)){
-        document.getElementById('go').textContent = 'Abre esto desde un artículo de Wikipedia';
-        document.getElementById('go').href = '#';
-        return;
-      }
-
-      // extraer host y path
-      var m = ref.match(/^https?:\/\/([^\/]+)(\/.*)$/),
-          host = m[1],
-          path = m[2],
-          code = host.split('.')[0],
-          target;
-
-      // lógica
-      if(path.indexOf('/w/index.php?search=')===0){
-        target = 'es';
-      }
-      else if(path==='/' || path==='/wiki/' || path==='/wiki/Main_Page'){
-        target = (code==='en' ? 'es' : 'en');
-      }
-      else {
-        target = (code==='en' ? 'en' : 'es');
-      }
-
-      var newUrl = ref.replace(/^https?:\/\/\w{2}\.wikipedia\.org/, 'https://'+target+'.wikipedia.org');
-      document.getElementById('go').href = newUrl;
-
-      // redirigir automáticamente
-      setTimeout(function(){
-        window.location.replace(newUrl);
-      }, 1000);
-    })();
+    document.getElementById('traducir').addEventListener('click', () => {
+      // Al hacer clic en "Traducir", reemplaza el texto japonés o muestra alerta
+      alert('te falta calle bro');
+    });
   </script>
+
 </body>
 </html>
