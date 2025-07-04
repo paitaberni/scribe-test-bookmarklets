@@ -4,35 +4,12 @@
   <meta charset="UTF-8">
   <title>¡Feliz Cumpleaños Yago!</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f9f3d2;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
-    }
-    h1 {
-      color: #d23f31;
-      font-size: 2.5rem;
-      text-align: center;
-    }
-    .buttons, .upload, details {
-      margin: 1rem 0;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    input[type="file"] {
-      font-size: 1rem;
-    }
-    details summary {
-      cursor: pointer;
-      font-weight: bold;
-    }
+    body { font-family: sans-serif; background: #f9f3d2; color: #333; display: flex; flex-direction: column; align-items: center; padding: 2rem; }
+    h1 { color: #d23f31; font-size: 2.5rem; text-align: center; }
+    .buttons, .upload, details { margin: 1rem 0; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+    input[type="file"] { font-size: 1rem; }
+    details summary { cursor: pointer; font-weight: bold; }
   </style>
 </head>
 <body>
@@ -49,15 +26,274 @@
     <input type="file" id="video" accept="video/*">
   </div>
 
+  ```html
+<!-- Q&A interactivo -->
+<div class="qa-section">
   <details>
     <summary>¿Qué video hay que subir?</summary>
     <p>el de tu culo y mi fideo</p>
   </details>
+  <!-- Medicina básica -->
+  <details>
+    <summary>¿Qué le dice una neurona a otra cuando tiene prisa?</summary>
+    <p>¡Apura el potencial de acción, que perdemos el bus sináptico!</p>
+  </details>
+  <details>
+    <summary>¿Por qué la mitocondria se separó del ribosoma?</summary>
+    <p>Porque decía que no había química, solo genética.</p>
+  </details>
+  <details>
+    <summary>¿Qué le dijo un cadaver a un estudiante de medicina?</summary>
+    <p>Te veo un poco tieso, ¿quieres estirar?</p>
+  </details>
+
+  <!-- Rock progresivo -->
+  <details>
+    <summary>¿Por qué nadie entiende las canciones de King Crimson?</summary>
+    <p>Porque antes de que las entiendas, Robert Fripp ya cambió de alineación tres veces y volvió al pasado.</p>
+  </details>
+  <details>
+    <summary>¿Qué hora es cuando King Crimson toca en vivo?</summary>
+    <p>Depende, si es Fripp: simultáneamente ayer y dentro de dos años.</p>
+  </details>
+
+  <!-- Madrid vs Valladolid vs Santibáñez vs Yate de la abuela de Yago -->
+  <details>
+    <summary>¿En qué se parecen Madrid y el yate de la abuela de Yago?</summary>
+    <p>Ambos cuestan demasiado para lo que realmente valen.</p>
+  </details>
+  <details>
+    <summary>¿Qué diferencia hay entre Valladolid y Santibáñez de Vidriales?</summary>
+    <p>Que en Valladolid hay gente, y en Santibáñez gente... bueno, si buscas bien.</p>
+  </details>
+  <details>
+    <summary>¿Qué le dice Madrid a Santibáñez de Vidriales?</summary>
+    <p>“¿Dónde queda eso exactamente?”<br>“Justo en el centro entre Madrid y ninguna parte.”</p>
+  </details>
+
+  <!-- Bebidas energéticas -->
+  <details>
+    <summary>¿Qué le dijo el Red Bull al Jägermeister después de juntarse?</summary>
+    <p>No siento las alas, pero seguro mañana sentimos la resaca.</p>
+  </details>
+  <details>
+    <summary>¿Por qué el Jägerbomb es la bebida preferida de los físicos cuánticos?</summary>
+    <p>Porque después del tercero nunca sabes si estás vivo, muerto o en ambas cosas al mismo tiempo.</p>
+  </details>
+
+  <!-- Filosofía del lenguaje violento -->
+  <details>
+    <summary>¿Qué le dice Wittgenstein al niño después del golpe?</summary>
+    <p>“Lo que no se puede hablar es mejor golpearlo con una pizarra.”</p>
+  </details>
+  <details>
+    <summary>¿Por qué Wittgenstein no se disculpó tras pegarle al niño?</summary>
+    <p>Porque según su lógica, una disculpa sería un juego lingüístico innecesario, así que le regaló la pizarra.</p>
+  </details>
+
+  <!-- Español-argentino absurdo -->
+  <details>
+    <summary>¿Qué es la PCR?, pregunta un argentino a un español.</summary>
+    <p>Argentino: “¿Reacción en cadena de la polimerasa para amplificar ADN?”<br>
+       Español: “¡No, es la Peña Cultural del Real Madrid, PCRM! ¡Jajaja!”<br>
+       Argentino: “¿Es porque tienen la nariz grande?”</p>
+  </details>
+  <details>
+    <summary>¿Qué es ATP?, pregunta un español a un argentino.</summary>
+    <p>Argentino: “Adenosín trifosfato, obvio.”<br>
+       Español: “¡No! ¡Es A Tope con las Pibas, ATP! ¡Jajaja!”<br>
+       Argentino: “¿Por eso acabáis con menos energía que una célula sin mitocondrias?”</p>
+  </details>
+  <details>
+    <summary>¿Qué es un Cardi B?, le pregunta un español a un argentino.</summary>
+    <p>Argentino: “Una rapera estadounidense.”<br>
+       Español: “No, ¡es un electrocardiograma que da mal!”<br>
+       Argentino: “¿Por eso os da taquicardia cuando veis a Messi?”</p>
+  </details>
+
+  <!-- Absurdo más desarrollado -->
+  <details>
+    <summary>¿Qué ocurre si juntas una mitocondria con un estudiante de medicina en exámenes?</summary>
+    <p>Que terminan gritándole: “¡Dame ATP, dame ATP!” Pero la mitocondria le dice: “Tranquilo, que en tu caso sería mejor café.”</p>
+  </details>
+  <details>
+    <summary>¿Por qué una proteína no quiere ir nunca a las fiestas?</summary>
+    <p>Porque siempre termina plegándose mal y haciendo amigos tóxicos que acaban causándole apoptosis social.</p>
+  </details>
+  <details>
+    <summary>¿Cuál es la verdadera razón por la que el riñón está tan enfadado con el hígado?</summary>
+    <p>Porque siempre presume de ser vital, pero cuando se intoxica de alcohol le dice: “¡Límpialo tú!”</p>
+  </details>
+
+  <details>
+    <summary>¿Qué pasa cuando escuchas un álbum entero de King Crimson al revés?</summary>
+    <p>Entiendes las letras, pero Fripp aparece en tu salón exigiendo que le devuelvas sus partituras perdidas.</p>
+  </details>
+  <details>
+    <summary>¿Qué tienen en común Robert Fripp y un electricista malo?</summary>
+    <p>Que ambos te cambian los cables sin avisar; Fripp dice que es arte y el electricista que estaba borracho.</p>
+  </details>
+
+  <details>
+    <summary>¿En qué se diferencian Madrid, Valladolid y Santibáñez de Vidriales?</summary>
+    <p>En Madrid se preguntan cómo llegar a fin de mes, en Valladolid cómo llegar a Madrid, y en Santibáñez cómo llegar al siglo XXI. En el yate de la abuela ni se lo cuestionan.</p>
+  </details>
+  <details>
+    <summary>¿Qué le dijo el alcalde de Santibáñez al alcalde de Madrid?</summary>
+    <p>“Nosotros también tenemos metro, pero solo mide un metro y está en el museo municipal.”</p>
+  </details>
+
+  <details>
+    <summary>¿Qué ocurre si mezclas demasiado Jägermeister con Red Bull?</summary>
+    <p>Crees ser Einstein y acabas explicándole la relatividad a una farola en alemán.</p>
+  </details>
+  <details>
+    <summary>¿Por qué Nietzsche dejó de beber Jägerbombs?</summary>
+    <p>Porque tras la quinta, miró al abismo, el abismo lo miró de vuelta y terminaron vomitándose mutuamente.</p>
+  </details>
+
+  <details>
+    <summary>¿Qué ocurrió después de que Wittgenstein golpeó al niño accidentalmente con la pizarra?</summary>
+    <p>Le dijo: “La realidad solo existe en los juegos de lenguaje. Ese chichón solo es real si tu madre pregunta.”</p>
+  </details>
+  <details>
+    <summary>¿Cómo pide Wittgenstein un café?</summary>
+    <p>“Si el café es el caso y yo el sujeto, dame un caso que sea verdad.” El camarero sirve té y él responde: “¡Exacto!”</p>
+  </details>
+
+  <details>
+    <summary>¿Qué es el ADN?, pregunta un español a un argentino.</summary>
+    <p>Argentino: “Ácido desoxirribonucleico.”<br>
+       Español: “¡No, es el Atlético De Navalcarnero! ¡El mejor equipo regional!”<br>
+       Argentino: “¿Por eso vuestro fútbol es tan retorcido como la doble hélice?”</p>
+  </details>
+  <details>
+    <summary>¿Qué es una célula madre?, pregunta un argentino a un español.</summary>
+    <p>Español: “Una célula que se diferencia en otras.”<br>
+       Argentino: “No, una vieja diciéndote: ‘Salí del sofá y hacé algo útil, ya sos grande.’”</p>
+  </details>
+  <details>
+    <summary>¿Qué es un microARN?, pregunta un español a un argentino.</summary>
+    <p>Argentino: “Molecula que regula la expresión génica.”<br>
+       Español: “No, autobús pequeño que pasa por Valladolid.”<br>
+       Argentino: “¿Y por eso no lo ve nadie?”</p>
+  </details>
+
+  <details>
+    <summary>¿Qué es un hipopótamo parado en medio del Retiro a las 3 a. m.?</summary>
+    <p>Una demostración de por qué no debes pedir otro Jägerbomb.</p>
+  </details>
+  <details>
+    <summary>¿Cuál es la verdadera diferencia entre un concierto de King Crimson y una clase de Anatomía?</summary>
+    <p>En ambos ves estructuras extrañas, nadie entiende nada y al final alguien pregunta: “¿Esto entra en el examen?”</p>
+  </details>
+  <details>
+    <summary>¿Qué pasa si Wittgenstein, Nietzsche y Robert Fripp entran en un bar?</summary>
+    <p>Fripp pide silencio, Nietzsche dice “Dios ha muerto” y Wittgenstein rompe la pizarra explicando por qué nadie debería hablar.</p>
+  </details>
+
+  <!-- Pappo, Pity Álvarez, Robe -->
+  <details>
+    <summary>¿Qué le dijo Pappo a un alumno de medicina que le preguntó qué era la acetilcolina?</summary>
+    <p>“¿Eso se fuma o se toca en Do menor?”</p>
+  </details>
+  <details>
+    <summary>¿Por qué Pappo no creía en los bioquímicos?</summary>
+    <p>Porque nunca vio a uno hacer un solo de enzimas con distorsión.</p>
+  </details>
+  <details>
+    <summary>¿Qué pasa si le pones bata de laboratorio a Pappo en fisiología?</summary>
+    <p>Te explica el ciclo de Krebs con un riff de blues y grita: “¡Aguante la glucólisis, vieja!”</p>
+  </details>
+
+  <details>
+    <summary>¿Qué pasa si el Pity entra a una clase de genética molecular?</summary>
+    <p>Pregunta si los “genes recesivos” son los que se esconden cuando cae la policía.</p>
+  </details>
+  <details>
+    <summary>¿Qué le respondió el Pity a un neurocientífico con una resonancia magnética?</summary>
+    <p>“Eso lo vi en el telo, pero era la tele desenfocada.”</p>
+  </details>
+  <details>
+    <summary>¿Por qué el Pity dejó de dar charlas TED?</summary>
+    <p>Porque al minuto ya gritaba: “¡La moto tiene alma!” señalando un ventilador.</p>
+  </details>
+
+  <details>
+    <summary>¿Qué ocurre si mezclas un poema de Robe con un protocolo molecular?</summary>
+    <p>Te sale un RT-PCR que rima con “violencia y flor de lis”.</p>
+  </details>
+  <details>
+    <summary>¿Por qué Robe falló el examen de anatomía?</summary>
+    <p>Porque al preguntar por el hígado respondió: “El hígado soy yo, filtro penas y trago tu amor.”</p>
+  </details>
+  <details>
+    <summary>¿Qué hace Robe cuando le duele la cabeza?</summary>
+    <p>Se arranca un verso, lo mete en un frasco con ibuprofeno y se lo inyecta con ron.</p>
+  </details>
+
+  <details>
+    <summary>¿Qué es P.A.P.O?, le pregunta un español a un argentino.</summary>
+    <p>Argentino: “¿El Carpo? ¿La leyenda?”<br>
+       Español: “¡No, es el Programa Académico de Promoción Opositora!”<br>
+       Argentino: “¿Y por eso hacéis riffs con PowerPoint?”</p>
+  </details>
+  <details>
+    <summary>¿Qué es el P.I.T.Y.?, le pregunta un argentino a un español.</summary>
+    <p>Español: “¿Terapia Intensiva Joven?”<br>
+       Argentino: “No, es Pity Interdimensional Toca y Y Grita.”</p>
+  </details>
+  <details>
+    <summary>¿Qué pasaría si Wittgenstein, el Pity y Robe hacen un trío acústico?</summary>
+    <p>Robe canta sobre mariposas suicidas, el Pity habla del alma de los parlantes y Wittgenstein rompe la guitarra diciendo: “Esto es una proposición sin sentido.”</p>
+  </details>
+
+  <details>
+    <summary>¿Qué tienen en común una mitocondria, una Telecaster y el acento de Santibáñez?</summary>
+    <p>Que si los escuchás mucho, te sentís vivo, eléctrico y confundido.</p>
+  </details>
+  <details>
+    <summary>¿Cuál es la diferencia entre estudiar anatomía y escuchar Extremoduro?</summary>
+    <p>En anatomía aprendes partes del cuerpo; con Extremoduro descubres que el alma también tiene hígado.</p>
+  </details>
+  <details>
+    <summary>¿Qué pasa si le das un Jägerbomb a Pappo, al Pity y a Robe?</summary>
+    <p>
+      • A Pappo: te lo devuelve y pide vino.<br>
+      • Al Pity: lo mete en un sifón y lo inhala.<br>
+      • A Robe: le escribe un poema y lo deja con un cigarro encendido.
+    </p>
+  </details>
+
+</div>
+```
+
+  <!-- Aquí iría tu <div class="qa-section"> con todos los Q&A -->
 
   <script>
+    // Traductor japonés
     document.getElementById('traducir').addEventListener('click', () => {
-      // Al hacer clic en "Traducir", reemplaza el texto japonés o muestra alerta
       alert('te falta calle bro');
+    });
+
+    // Al subir un video: anuncio + link
+    document.getElementById('video').addEventListener('change', () => {
+      // Muestra anuncio
+      const anuncio = document.createElement('div');
+      anuncio.style.padding = '1rem';
+      anuncio.style.margin = '1rem 0';
+      anuncio.style.background = '#e0ffe0';
+      anuncio.style.border = '2px solid #00a000';
+      anuncio.innerHTML = `
+        <strong>Bien, aquí está tu microdosis dopaminérgica diaria:</strong>
+        <br>
+        <a href="https://www.youtube.com/watch?v=jRLfGwQ7Nsw" target="_blank">
+          ▶️ ¡Dosis de YouTube!
+        </a>
+      `;
+      // Inserta el anuncio justo debajo del input
+      const uploadDiv = document.querySelector('.upload');
+      uploadDiv.parentNode.insertBefore(anuncio, uploadDiv.nextSibling);
     });
   </script>
 
